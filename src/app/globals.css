@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe7ff;
+  --color-brand-200: #bfd3ff;
+  --color-brand-300: #93b4fd;
+  --color-brand-400: #5b8cf8;
+  --color-brand-500: #2f66f0;
+  --color-brand-600: #1748d9;
+  --color-brand-700: #1238b0;
+  --color-brand-800: #13328c;
+  --color-brand-900: #0f2766;
+  --color-accent-400: #fbaa3c;
+  --color-accent-500: #f58f0a;
+  --color-accent-600: #d97706;
+}
+
+html { -webkit-tap-highlight-color: transparent; }
+body { background: #f6f8fc; color: #0f172a; }
+
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none; }
+@utility btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 shadow-sm shadow-brand-600/20; }
+@utility btn-accent { @apply btn bg-accent-500 text-white hover:bg-accent-600; }
+@utility btn-wa { @apply btn bg-[#1faa53] text-white hover:bg-[#178a43]; }
+@utility btn-ghost { @apply btn bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50; }
+@utility btn-danger { @apply btn bg-white text-red-600 ring-1 ring-red-200 hover:bg-red-50; }
+@utility btn-sm { @apply px-3! py-1.5! text-xs! rounded-lg!; }
+@utility card { @apply rounded-2xl bg-white ring-1 ring-slate-200/70 shadow-sm; }
+@utility input { @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-brand-500 focus:ring-4 focus:ring-brand-100 disabled:bg-slate-50; }
+@utility label { @apply mb-1 block text-sm font-medium text-slate-700; }
+@utility chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-area { box-shadow: none !important; border: 0 !important; }
+}
+.nota-thermal { width: 58mm; font-family: ui-monospace, monospace; font-size: 11px; }
+.nota-thermal.w80 { width: 80mm; font-size: 12px; }
+@media print {
+  body.cetak-nota * { visibility: hidden; }
+  body.cetak-nota .print-area, body.cetak-nota .print-area * { visibility: visible; }
+  body.cetak-nota .print-area { position: absolute; left: 0; top: 0; }
+}
